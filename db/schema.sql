@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS piggy_db;
+CREATE DATABASE piggy_db;
