@@ -1,1 +1,3 @@
-# forever-pig
+# ForeverPig
+
+Your Perpetual Piglet Provider
