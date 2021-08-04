@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const sequelize = require('../config/connection');
 
 
-class Farmer extends Model {}
+class Request extends Model {}
 
-Farmer.init({
+Request.init({
     username:{
         type:DataTypes.STRING,
         allowNull:false
@@ -24,14 +24,14 @@ Farmer.init({
     }
 },{
     hooks:{
-        beforeCreate: async  (newFarmerData)=>{
-            newFarmerData.password = bcrypt.hashSync(newFarmerData.password,10);
-            return newFarmerData;
+        beforeCreate: async  (newRequestData)=>{
+            newRequestData.password = bcrypt.hashSync(newRequestData.password,10);
+            return newRequestData;
         },
-        beforeBulkCreate: async  (newFarmerData)=>{
-            const hashedPasswords = newFarmerData.map(newFarmer=>{
-                newFarmer.password = bcrypt.hashSync(newFarmer.password,10);
-                return newFarmer;
+        beforeBulkCreate: async  (newRequestData)=>{
+            const hashedPasswords = newRequestData.map(newRequest=>{
+                newRequest.password = bcrypt.hashSync(newRequest.password,10);
+                return newRequest;
             })
             return hashedPasswords;
         }
@@ -39,4 +39,4 @@ Farmer.init({
     sequelize
 })
 
-module.exports = Farmer
+module.exports = Request
