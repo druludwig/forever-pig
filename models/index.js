@@ -1,10 +1,13 @@
-const Request = require("./User");
+
+const User = require("./User");
 const Piggy = require("./Piggy");
 
-Request.hasMany(Piggy);
-Piggy.belongsTo(Request);
+
+User.hasMany(Request);
+
+Piggy.hasMany(Request);
 
 module.exports = {
-    Request,
+    User,
     Piggy
 }
