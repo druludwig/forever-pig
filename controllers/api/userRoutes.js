@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const { User, Farmer, Piggy } = require('../../models');
+const { request } = require('http');
+const { User, Request, Piggy } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
     const UserData = await Reader.findAll({
-      include: [{ model: Piggy }, { model: Farmer }],
+      include: [{ model: Piggy }, { model: Request }],
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Piggy }, { model: Farmer }],
+      include: [{ model: Piggy }, { model: Request }],
     });
 
     if (!userData) {
@@ -57,4 +58,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = user;
