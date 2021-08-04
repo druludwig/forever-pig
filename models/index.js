@@ -1,10 +1,12 @@
-const Farmer = require("./User");
+const User = require("./User");
 const Piggy = require("./Piggy");
 
-Farmer.hasMany(Piggy);
-Piggy.belongsTo(Farmer);
+
+User.hasMany(Request);
+
+Piggy.hasMany(Request);
 
 module.exports = {
-    Farmer,
+    User,
     Piggy
 }

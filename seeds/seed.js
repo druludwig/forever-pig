@@ -20,40 +20,32 @@ const plantSeeds = async () => {
       password: "password"
     }
   ]);
-
-  await db.Farmer.bulkCreate([
-    {
-        username: "farmer123",
-        email: "pigfarms@farm.com",
-        password: "password"
-      },
-      {
-        username: "southsidefarms",
-        email: "wedownsouth@farm.com",
-        password: "password"
-      },
-      {
-        username: "1lovepigs",
-        email: "pigmaster@pigs.com",
-        password: "password"
-      }
-    ]);
   await db.Piggy.bulkCreate([
         {
             name: "Charlotte",
-            isCute: true,
-            FarmerID: "1"
+            breed: "American Yorkshire",
+            age: "10 days",
+            sex: "female",
+            location: "Idaho",
+            farm_name: "Sweet Potato Farms",
         },
         {
-            name: "Spot",
-            isCute: true,
-            FarmerID: "1"
+            name: "Oinkers",
+            breed: "Aksai Black Pied",
+            age: "14 days",
+            sex: "male",
+            location: "Oregon",
+            farm_name: "Big Pig Farms"
         },
         {
-            username: "Sir Oinks Alot",
-            isCute: true,
-            FarmerID: "2"
-        }
+            name: "Taco",
+            breed: "Vietnamese Potbelly Pig",
+            age: "13 days",
+            sex: "male",
+            location: "Washington",
+            farm_name: "Pig Exotics"
+        },
+
         ]);
     console.log('seeded');
     process.exit(0);

@@ -4,7 +4,7 @@ const { User, Request, Piggy } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const UserData = await Reader.findAll({
+    const userData = await Reader.findAll({
       include: [{ model: Piggy }, { model: Request }],
     });
     res.status(200).json(userData);

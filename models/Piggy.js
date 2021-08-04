@@ -7,10 +7,21 @@ Piggy.init({
     name:{
         type:DataTypes.TEXT
     },
-    isCute:{
-        type:DataTypes.BOOLEAN,
-        allowNull:false,
-    }
+    breed:{
+        type:DataTypes.TEXT
+    },
+    age:{
+        type:DataTypes.TEXT
+    },
+    sex:{
+        type:DataTypes.TEXT
+    },
+    location:{
+        type:DataTypes.TEXT
+    },
+    farm_name:{
+        type:DataTypes.TEXT
+    },
 },{sequelize})
 
 module.exports = Piggy
