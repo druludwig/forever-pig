@@ -16,6 +16,9 @@ Piggy.init({
     sex:{
         type:DataTypes.TEXT
     },
+    weight:{
+        type:DataTypes.TEXT
+    },
     location:{
         type:DataTypes.TEXT
     },

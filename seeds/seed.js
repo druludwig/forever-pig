@@ -26,6 +26,7 @@ const plantSeeds = async () => {
             breed: "American Yorkshire",
             age: "10 days",
             sex: "female",
+            weight: "13 lbs",
             location: "Idaho",
             farm_name: "Sweet Potato Farms",
         },
@@ -34,6 +35,7 @@ const plantSeeds = async () => {
             breed: "Aksai Black Pied",
             age: "14 days",
             sex: "male",
+            weight: "7 lbs",
             location: "Oregon",
             farm_name: "Big Pig Farms"
         },
@@ -42,6 +44,7 @@ const plantSeeds = async () => {
             breed: "Vietnamese Potbelly Pig",
             age: "13 days",
             sex: "male",
+            weight: "9 lbs",
             location: "Washington",
             farm_name: "Pig Exotics"
         },
