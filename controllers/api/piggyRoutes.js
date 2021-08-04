@@ -34,10 +34,10 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const farmerData = await Piggy.create({
+    const requestData = await Piggy.create({
       reader_id: req.body.user_id,
     });
-    res.status(200).json(farmerData);
+    res.status(200).json(requestData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -63,4 +63,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = piggy;
