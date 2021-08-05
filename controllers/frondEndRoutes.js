@@ -2,16 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-router.get('/',(req,res)=>{
-    db.Piggy.findAll().then(piggy=>{
-        const jsonPiggy = piggy.map(piggy=>{
-            return piggy.get({plain:true})
-        })
-        console.log(jsonPiggy);
-        res.render("index",{
-            piggy:jsonPiggy
-        })
-    })
+router.get("/",(req,res)=>{
+    res.render("homepage");
 })
 
 router.get("/login",(req,res)=>{
