@@ -6,4 +6,4 @@ User.hasMany(Piggy);
 
 Piggy.belongsTo(User);
 
-module.exports = { User , Piggy }
+module.exports = { User, Piggy }
