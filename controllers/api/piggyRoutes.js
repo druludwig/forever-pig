@@ -63,4 +63,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = piggy;
+module.exports = router;
