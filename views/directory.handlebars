@@ -1,0 +1,9 @@
+{{!-- This renders the list of pigs that merges into the "body" of main.handlebars --}}
+
+<h1>Directory</h1>
+
+<section class="cell">
+    {{#each piggies as |piggy|}}
+    {{> pig-card}}
+    {{/each}}
+</section>
