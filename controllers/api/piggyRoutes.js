@@ -1,66 +1,30 @@
 const router = require('express').Router();
-const { Piggy, User } = require('../../models');
+const db = require('../../models');
 
+router.get('/',(req,res)=>{
+  db.Piggy.findAll()
+  .then(userData=>{
+      res.json(userData)
+  }).catch(err=>{
+      console.log(err);
+      res.status(500).json({
+          message:"Uh oh!",
+          error:err
+      })
+  })
+})
 
-router.get('/', async (req, res) => {
-  try {
-    const PiggyData = await Piggy.findAll({
-      include: [{ model: User }],
-    });
-    res.status(200).json(PiggyData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+router.get('/:id',(req,res)=>{
+  db.Piggy.findByPk(req.params.id)
+  .then(userData=>{
+      res.json(userData)
+  }).catch(err=>{
+      console.log(err);
+      res.status(500).json({
+          message:"Uh oh!",
+          error:err
+      })
+  })
+})
 
-
-router.get('/:id', async (req, res) => {
-  try {
-    const PiggyData = await Piggy.findByPk(req.params.id, {
-      include: [{ model: User }],
-    });
-
-    if (!PiggyData) {
-      res.status(404).json({ message: 'Aint no piggy here by that name!' });
-      return;
-    }
-
-    res.status(200).json(piggyData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.post('/', async (req, res) => {
-  try {
-    const requestData = await Piggy.create({
-      reader_id: req.body.user_id,
-    });
-    res.status(200).json(requestData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-
-router.delete('/:id', async (req, res) => {
-  try {
-    const piggyData = await piggy.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-
-    if (!piggyData) {
-      res.status(404).json({ message: 'Aint no piggy here by that name!' });
-      return;
-    }
-
-    res.status(200).json(piggyData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-module.exports = piggy;
+module.exports = router;

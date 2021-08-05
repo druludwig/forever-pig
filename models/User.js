@@ -3,35 +3,39 @@ const bcrypt = require("bcrypt");
 const sequelize = require('../config/connection');
 
 
-class User extends Model {}
+class User extends Model { }
 
 User.init({
-    username:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        unique:true
-    }, 
-    password:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        validate:{
-            len:[8]
+
+    first_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [8]
         }
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        unique:true
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     }
-},{
-    hooks:{
-        beforeCreate: async  (newUserData)=>{
-            newUserData.password = bcrypt.hashSync(newUserData.password,10);
+}, {
+    hooks: {
+        beforeCreate: async (newUserData) => {
+            newUserData.password = bcrypt.hashSync(newUserData.password, 10);
             return newUserData;
         },
-        beforeBulkCreate: async  (newUserData)=>{
-            const hashedPasswords = newUserData.map(newUser=>{
-                newUser.password = bcrypt.hashSync(newUser.password,10);
+        beforeBulkCreate: async (newUserData) => {
+            const hashedPasswords = newUserData.map(newUser => {
+                newUser.password = bcrypt.hashSync(newUser.password, 10);
                 return newUser;
             })
             return hashedPasswords;
