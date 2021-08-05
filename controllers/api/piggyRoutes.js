@@ -27,4 +27,27 @@ router.get('/:id',(req,res)=>{
   })
 })
 
+router.post("/", (req, res) => {
+    db.Piggy.create({
+      name: req.body.name,
+      breed: req.body.breed,
+      birthdate: req.body.birthdate,
+      sex: req.body.sex,
+      weight: req.body.weight,
+      location: req.body.location,
+      farm_name: req.body.farm_name,
+
+    })
+      .then(newPiggy => {
+        res.json(newPiggy);
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).json({
+          message: "error",
+          error: err
+        })
+      })
+  })
+
 module.exports = router;
