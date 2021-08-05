@@ -13,20 +13,20 @@ newPigForm.addEventListener("submit", (event) => {
     }
     console.log(newPigObj);
 
-    // fetch("/api/piggy", {
-    //     method: "POST",
-    //     body: JSON.stringify(newPigObj),
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     }
-    // }).then(res => {
-    //     if (res.ok) {
-    //         console.log("success")
-    //         res.json().then(data => {
-    //             location.assign(`/${data.id}`)
-    //         })
-    //     } else {
-    //         alert("Sorry we cannot accept this little piggy")
-    //     }
-    // })
+    fetch("/api/piggy", {
+        method: "POST",
+        body: JSON.stringify(newPigObj),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => {
+        if (res.ok) {
+            console.log("success")
+            res.json().then(data => {
+                location.assign(`/directory`)
+            })
+        } else {
+            alert("Sorry we cannot accept this little piggy")
+        }
+    })
 })
