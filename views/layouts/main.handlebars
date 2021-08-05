@@ -4,41 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>ForeverPig</title>
+  <link rel="stylesheet" href="./assets/css/jass.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+    integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">ForeverPig</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+  <div class="grid-x grid-margin-y">
+    <div class="cell">
+      <header class="center">
+        <h1><img src="./assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
+        <nav><a href="/">Home</a> | <a href="/directory">Directory</a> |
+          {{#if logged_in}}
+          <a href="/account">My Account</a> |
+          <button class="no-button" id="logout">Logout</button>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </header>
+    </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    <div class="cell">
+      <hr>
+      {{{ body }}}
+    </div>
+    <!-- Footer -->
+    <footer class="cell center">
+      <hr>
+      🐽<br>Created by Zach, Jared, Leone, and Dru
+    </footer>
+
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 </body>
+
+</html>
 
 </html>
