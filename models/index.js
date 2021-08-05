@@ -1,13 +1,9 @@
-
 const User = require("./User");
 const Piggy = require("./Piggy");
 
 
-// User.hasMany(Request);
+User.hasMany(Piggy);
 
-// Piggy.hasMany(Request);
+Piggy.belongsTo(User);
 
-module.exports = {
-    User,
-    Piggy
-}
+module.exports = { User , Piggy }
