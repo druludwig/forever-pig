@@ -27,27 +27,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post("/", (req, res) => {
-  if(!req.session?.user?.id){
-    res.status(401).json({
-      message: "you must oink in first"
-    })
-  }else {
-    db.User.findByPk(req.session.user.id).then(yourData => {
-      yourData.addFollow(req.body.follow).then(done => {
-        res.json({
-          message:"followed!"
-        })
-      })
-    })
-  }
-})
 
-router.get("/session", (req, res) => {
-  res.json {
-    sessionData:req.session
-  }
-})
 
 router.post("/", (req, res) => {
   db.User.create({

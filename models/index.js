@@ -2,8 +2,14 @@ const User = require("./User");
 const Piggy = require("./Piggy");
 
 
-User.hasMany(Piggy);
+User.belongsToMany(Piggy, {
+    through:"RequesterRequested",
 
-Piggy.belongsTo(User);
+});
+
+Piggy.belongsToMany(User, {
+    through:"RequesterRequested",
+
+});
 
 module.exports = { User, Piggy }
