@@ -2,6 +2,7 @@
 <div style="display:flex; flex-direction:column; align-items:center">
 
     <div style="width:300px;text-align: center; ">
+            <button id="upload_widget" class="cloudinary-button">Upload Pig-ture</button>
         <form id="newPiggy">
             <p>Name of Piglet</p>
             <input type="text" id="pigName">
@@ -24,7 +25,6 @@
             <p>Farm Name</p>
             <input type="text" id="pigFarm">
             
-            <button id="upload_widget" class="cloudinary-button">Upload Pig-ture</button>
 
 
             <button type="submit" class="primary button expanded search-button" id="submit">List Pig</button>
@@ -39,8 +39,8 @@
 
 <script type="text/javascript">  
 var myWidget = cloudinary.createUploadWidget({
-  cloudName: 'my_cloud_name', 
-  uploadPreset: 'my_preset'}, (error, result) => { 
+  cloudName: 'foreverpig', 
+  uploadPreset: 'kkzelal2'}, (error, result) => { 
     if (!error && result && result.event === "success") { 
       console.log('Done! Here is the image info: ', result.info); 
     }
