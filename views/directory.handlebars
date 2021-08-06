@@ -2,8 +2,9 @@
 
 <h1>Directory</h1>
 
-<section class="cell">
-    {{#each piggies as |piggy|}}
-    {{> pig-card}}
-    {{/each}}
-</section>
+{{#each pigSend as |piggy|}}
+<p>{{piggy.name}}</p>
+<p>{{piggy.breed}}</p>
+{{/each}}
+
+<p>end pig list</p>
