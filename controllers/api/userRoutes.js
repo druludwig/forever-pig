@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('../../models');
+const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
   db.User.findAll()
@@ -27,7 +28,43 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post("/login",(req,res)=>{
+  db.User.findOne({
+      where:{
+          email:req.body.email,
+      }
+  }).then(userData=>{
+      if(!userData){
+          res.status(403).json({
+              message:"Invalid username or password"
+          })
+      } else {
+          if(bcrypt.compareSync(req.body.password,userData.password)){
+              req.session.user = {
+                  email:userData.email
+              }
+              res.json(userData)
+          } else {
+              res.status(403).json({
+                  message:"Invalid username or password"
+              })
+          }
+      }
+  }).catch(err=>{
+      console.log(err);
+      res.status(500).json({
+          message:"Uh oh!",
+          error:err
+      })
+  })
+})
 
+
+router.get("/session", (req, res) => {
+  res.json ({ 
+    sessionData:req.session
+  })
+})
 
 router.post("/", (req, res) => {
   db.User.create({
@@ -37,6 +74,12 @@ router.post("/", (req, res) => {
     password: req.body.password,
   })
     .then(newUser => {
+      req.session.user = {
+        id:userData.id,
+        username:userData.username,
+        email:userData.username,
+        email:userData.email
+      }
       res.json(newUser);
     })
     .catch(err => {
