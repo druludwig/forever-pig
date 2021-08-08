@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const db = require('../../models');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 router.get('/', (req, res) => {
   db.User.findAll()
@@ -28,41 +29,50 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post("/login",(req,res)=>{
-  db.User.findOne({
-      where:{
-          email:req.body.email,
-      }
-  }).then(userData=>{
-      if(!userData){
-          res.status(403).json({
-              message:"Invalid username or password"
-          })
-      } else {
-          if(bcrypt.compareSync(req.body.password,userData.password)){
-              req.session.user = {
-                  email:userData.email
-              }
-              res.json(userData)
-          } else {
-              res.status(403).json({
-                  message:"Invalid username or password"
-              })
-          }
-      }
-  }).catch(err=>{
-      console.log(err);
-      res.status(500).json({
-          message:"Uh oh!",
-          error:err
-      })
-  })
-})
+// router.post("/login",(req,res)=>{
+//   db.User.findOne({
+//       where:{
+//           email:req.body.email,
+//       }
+//   }).then(userData=>{
+//       if(!userData){
+//           res.status(403).json({
+//               message:"Invalid username or password"
+//           })
+//       } else {
+//           if(bcrypt.compareSync(req.body.password,userData.password)){
+//               req.session.user = {
+//                   email:userData.email
+//               }
+//               res.json(userData)
+//               console.log('logged in')
+//           } else {
+//               res.status(403).json({
+//                   message:"Invalid username or password"
+//               })
+//           }
+//       }
+//   }).catch(err=>{
+//       console.log(err);
+//       res.status(500).json({
+//           message:"Uh oh!",
+//           error:err
+//       })
+//   })
+// })
 
+router.post('/login', passport.authenticate('local-signin', {
+  successRedirect: '/directory',
+
+  failureRedirect: '/login'
+}
+
+));
 
 router.get("/session", (req, res) => {
+  console.log(req.user.first_name)
   res.json ({ 
-    sessionData:req.session
+    sessionData:req.user.first_name
   })
 })
 
