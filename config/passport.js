@@ -82,16 +82,15 @@ passport.use('local-signin', new LocalStrategy(
 
 //serialize
 passport.serializeUser(function(user, done) {
- 
     done(null, user.id);
  
 });
 
 // deserialize user 
 passport.deserializeUser(function(id, done) {
-
+console.log(id)
     User.findByPk(id).then(function(user) {
-        console.log(user.dataValues);
+        
 
         if (user) {
  

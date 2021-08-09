@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.get('/', (req, res) => {
+  console.log("users")
+  console.log(req.user.first_name);
+
   db.User.findAll()
     .then(userData => {
       res.json(userData)
@@ -69,10 +72,18 @@ router.post('/login', passport.authenticate('local-signin', {
 
 ));
 
+// router.get('/logout', (req,res) => {
+  
+//   req.session.destroy(function(err) {
+ 
+//     res.redirect('/');
+
+// });
+// });
+
 router.get("/session", (req, res) => {
-  console.log(req.user.first_name)
   res.json ({ 
-    sessionData:req.user.first_name
+    sessionData:''
   })
 })
 

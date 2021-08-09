@@ -23,6 +23,15 @@ router.get("/logout",(req,res)=>{
     res.redirect("/")
 })
 
+// router.get('/logout', (req,res) => {
+  
+//     req.session.destroy(function(err) {
+   
+//     res.redirect('/');
+  
+//   });
+//   });
+
 router.get("/newpiggy",(req,res)=>{
     res.render("new-piggy");
 })
