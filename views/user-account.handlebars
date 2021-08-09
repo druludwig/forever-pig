@@ -1,3 +1,19 @@
+<div class="center">
 
-<h1>{{user.first_name}}'s Page!</h1>
-<a href="/logout">logout</a> 
+<button type="button" class="alert button" href="/logout">Logout</button>
+
+    <h3 style="margin-top: 30px;"><em>Welcome</em><br>{{user.first_name}}</h3>
+
+    <div style="margin-top: 30px;" class="center">
+        {{!-- If the user has pig(s) requested, display them --}}
+        {{#if user.piggyId}}
+            {{#each user.piggyId as |piggy|}}
+            {{name}}
+            {{breed}}
+            {{/each}}
+        {{!-- If there are no pigs requested, then link to directory --}}
+        {{else}}
+        <a href="/directory">Browse available piglets</a>
+        {{/if}}
+    </div>
+</div>
