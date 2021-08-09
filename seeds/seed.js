@@ -42,6 +42,11 @@ const plantSeeds = async () => {
       birthdate: "7/5/2021",
       sex: "Female",
       weight: "7 lbs",
+      location: "Bend, Oregon",
+      farm_name: "Big Pig Farms",
+      bio_short: "I'm Oinkers and turns out no, I won't get along with your dog",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "002.jpg"
     },
     {
       name: "Taco",
