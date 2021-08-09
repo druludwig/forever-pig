@@ -32,8 +32,6 @@ router.get("/pig-profile/:id", async (req, res) => {
 router.get("/account", async (req, res) => {
     try {
         const piggyData = await db.Piggy.findAll()
-
-
         const pigSend = piggyData.map((piggy) => piggy.get({ plain: true }));
         console.log(pigSend)
         res.render('user-account', { pigSend });
@@ -52,7 +50,6 @@ router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/")
 })
-
 
 
 
