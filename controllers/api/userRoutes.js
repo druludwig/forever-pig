@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const db = require('../../models');
-const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.get('/', (req, res) => {
@@ -40,12 +39,6 @@ router.post('/login', passport.authenticate('local-signin', {
 }
 
 ));
-  
-router.get("/session", (req, res) => {
-  res.json ({ 
-    sessionData:''
-  })
-})
 
 router.post("/", (req, res) => {
   db.User.create({
@@ -54,15 +47,6 @@ router.post("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-    .then(newUser => {
-      req.session.user = {
-        id:userData.id,
-        username:userData.username,
-        email:userData.username,
-        email:userData.email
-      }
-      res.json(newUser);
-    })
     .catch(err => {
       console.log(err)
       res.status(500).json({
