@@ -18,9 +18,31 @@ router.get('/directory', async (req, res) => {
     }
 });
 
-router.get("/account", (req, res) => {
-    res.render("user-account");
-})
+router.get("/pig-profile/:id", async (req, res) => {
+    try {
+        const piggyData = await db.Piggy.findByPk(req.params.id)
+        const pigSend = piggyData.dataValues
+        res.render('pig-profile', pigSend);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/account", async (req, res) => {
+    try {
+        const piggyData = await db.Piggy.findAll()
+
+
+        const pigSend = piggyData.map((piggy) => piggy.get({ plain: true }));
+        console.log(pigSend)
+        res.render('user-account', { pigSend });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 router.get("/login", (req, res) => {
     res.render("user-login");

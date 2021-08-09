@@ -28,46 +28,69 @@ const plantSeeds = async () => {
       name: "Charlotte",
       breed: "American Yorkshire",
       birthdate: "7/30/2021",
-      sex: "female",
+      sex: "Female",
       weight: "13 lbs",
-      location: "Idaho",
+      location: "Boise, Idaho",
       farm_name: "Sweet Potato Farms",
-      img_link: "https://www.thespruce.com/thmb/BP-Kbk6kNJJIbjC92-MJSEXqvZs=/2087x1436/filters:no_upscale():max_bytes(150000):strip_icc()/yorkshire-piglet-518931638-5c53bbcc46e0fb00013fabd5.jpg"
-
+      bio_short: "I'm Charlotte and I'll have anxiety squeals when you try to leave the house",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "001.jpg"
     },
     {
       name: "Oinkers",
-      breed: "Aksai Black Pied",
+      breed: "Vietnamese Potbelly Pig",
       birthdate: "7/5/2021",
-      sex: "male",
+      sex: "Female",
       weight: "7 lbs",
-      location: "Oregon",
-      farm_name: "Big Pig Farms",
-      img_link: "https://wikiimg.tojsiabtv.com/wikipedia/commons/thumb/6/6f/Cute_piggy.jpg/440px-Cute_piggy.jpg"
     },
     {
       name: "Taco",
-      breed: "Vietnamese Potbelly Pig",
+      breed: "Aksai Black Pied",
       birthdate: "6/11/2021",
-      sex: "male",
+      sex: "Male",
       weight: "9 lbs",
-      location: "Washington",
+      location: "Seabeck, Washington",
       farm_name: "Pig Exotics",
-      img_link: "https://www.thesprucepets.com/thmb/md4sOs27MRN9GMYDQnXS0HTNiqk=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/Stocksy_txp4f6d8346WEU100_Medium_108459-591084a23df78c9283d101d2.jpg"
-
+      bio_short: "I AM TACO.",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "003.jpg"
     },
     {
-
-      name: "Fudge",
-      breed: "Dystopian Swine",
-      birthdate: "8/9/2021",
-      sex: "very male",
-      weight: "14 lbs",
-      location: "Wyoming",
-      farm_name: "Chopping Chops Farm",
-      img_link: "https://i.pinimg.com/originals/df/ec/cd/dfeccd75cc160c68cc396d12c26bd8ca.jpg"
+      name: "Carl",
+      breed: "Hampshire",
+      birthdate: "6/7/2021",
+      sex: "Male",
+      weight: "19 lbs",
+      location: "Eugene, Oregon",
+      farm_name: "Rainbow Bridge Farms",
+      bio_short: "I'm Carl and I'll prove impossible to potty train",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "005.jpeg"
+    },
+    {
+      name: "Cloris",
+      breed: "American Yorkshire",
+      birthdate: "6/20/2021",
+      sex: "Female",
+      weight: "17 lbs",
+      location: "Vancouver, Washington",
+      farm_name: "Porky Pine Farms",
+      bio_short: "I'm Cloris and I love Mel Brooks films",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "006.jpeg"
+    },
+    {
+      name: "Wilbur",
+      breed: "American Yorkshire",
+      birthdate: "6/20/2021",
+      sex: "Male",
+      weight: "19 lbs",
+      location: "Vancouver, Washington",
+      farm_name: "Porky Pine Farms",
+      bio_short: "I'm Wilbur and I'll have night terrors",
+      bio_full: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores dignissimos explicabo deserunt nam asperiores excepturi.",
+      image_name: "004.jpg"
     }
-
   ]);
   console.log('seeded');
   process.exit(0);

@@ -1,30 +1,39 @@
-<div class="medium-6 large-4 cell">
-
-    <div class="column">
-        <!-- pig info card -->
-        <div class="card">
-            <img src="./assets/images/pigletPics/rufusPiglet.jfif" alt="Rufus-the-Pig">
-            <div class="card-divider"><button type="button" class="success button" id="reqButt">Request Info</button>
-            </div>
-            <div class="card-section">
-                <h4>4/5</h4>
-                Hi, I'm <strong>Rufus</strong> and I'm a funloving pig that likes to take long walks on the beach and
-                eat seafood slop!
-            </div>
-        </div>
-    </div>
+{{!-- Header --}}
+<div class="cell" style="text-align:center">
+    <header class="center">
+        <h1><img src="../assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/directory">Directory</a> |
+            <a href="/newpiggy">List a Piglet</a> |
+            {{> login}}
+        </nav>
+    </header>
+    <hr>
 </div>
-<div class="medium-6 large-8 cell">
-    <div class="columns">
-        <h2><strong>Rufus</strong></h2>
-        <p>Personality: <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aut, tempore exercitationem
-            nemo inventore voluptas commodi sed corporis harum pariatur? Distinctio dolorem laudantium dolores
-            dignissimos explicabo deserunt
-            nam asperiores excepturi.</p>
-        <p>Weight: <br> 16 lbs.</p>
-        <p>Age: <br> 8 Days</p>
-        <p>Sex: <br> M</p>
-        <p>Location: <br> The South</p>
-        <p>Breed: <br> Spotted</p>
+{{!-- END Header --}}
+
+<div class="work-feature-block grid-x">
+    <div class="cell medium-5">
+        <img class="work-feature-block-image" src="../assets/images/pigletPics/{{image_name}}" width="400px" />
+    </div>
+    <div class="cell medium-7">
+        <h2 class="work-feature-block-header">{{name}}</h2>
+        <p class="card-user-profile-name">{{bio_short}}</p>
+        <p style="margin-top: 20px;">{{bio_full}}</p>
+        <ul>
+            <li><span style="font-size: 18px;font-weight: bold;">Birthday: </span>{{birthdate}}</li>
+            <li><span style="font-size: 18px;font-weight: bold;">Breed: </span>{{breed}}</li>
+            <li><span style="font-size: 18px;font-weight: bold;">Sex: </span>{{sex}}</li>
+            <li><span style="font-size: 18px;font-weight: bold;">Weight: </span>{{weight}}</li>
+            <li><span style="font-size: 18px;font-weight: bold;">Located in: </span><a
+                    href="https://www.google.com/search?q={{location}}">{{location}}</a></li>
+
+            {{!-- Reserve Button - adds this pig to the user's account --}}
+            {{!-- If needed, use {{id}} to get the pig's ID --}}
+            <p style="margin-top: 25px;">
+                <a href="/" class="card-user-profile-button success button solid">Reserve {{name}}</a>
+            </p>
+        </ul>
     </div>
 </div>
