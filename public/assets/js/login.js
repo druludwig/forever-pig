@@ -34,20 +34,18 @@ loginForm.addEventListener("submit",(e) => {
   }
 
   console.log(authObj);
-//   fetch("/api/users/login", {
-//     method:"POST",
-//     body:JSON.stringify(authObj),
-//     headers:{
-//       "Content-Type":"application/json"
-//     }
-//   }).then(res=>{
-//     if(res.ok){
-//       return res.json()
-//     }else {
-//       alert("error!")
-//     }
-//   })
-//   .then(data=>{
-//     console.log(data);
-//   })
+  fetch("/api/users/login", {
+    method:"POST",
+    body:JSON.stringify(authObj),
+    headers:{
+      "Content-Type":"application/json"
+    }
+  }).then(res=>{
+
+    if(res.ok){
+      window.location.href='/directory';
+    }else {
+      alert("error!")
+    }
+  })
 })
