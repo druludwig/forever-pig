@@ -3,16 +3,6 @@ const {User} = require('../models');
 var LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport')
 
-// passport.use('local-signup', new LocalStrategy(
- 
-//     {
-//         usernameField: 'email',
-//         passwordField: 'password',
-//         passReqToCallback: true // allows us to pass back the entire request to the callback
- 
-//     },
- 
-// ));
 
 passport.use('local-signin', new LocalStrategy(
  
@@ -105,3 +95,4 @@ console.log(id)
     });
  
 });
+
