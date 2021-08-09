@@ -1,0 +1,68 @@
+    <div class="cell" style="text-align:center">
+        <header class="center">
+            <h1><img src="../assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
+            <nav>
+                <a href="/">Home</a> |
+                <a href="/directory">Directory</a> |
+                <a href="/newpiggy">List a Piglet</a> |
+                <a href="/account">Account</a> |
+                {{> login}}
+                
+            </nav>
+        </header>
+        <hr>
+    </div>
+<div class="cell">
+  <div class="hero-custom">
+    <div class="hero-text">Today's Buddy.<br>Tomorrow's Bacon.</div>
+  </div>
+</div>
+
+<div class="cell" style="margin-top: 30px;">
+  <div class="grid-x grid-padding-x">
+    <div class="medium-6 large-8 cell">
+      <h2>Welcome to ForeverPig</h2>
+      <p><span style="font-size: 20px;"><b>Imagine</b></span> your life with a revolving door of delightful baby pigs
+        entering your
+        home, <i>squealing</i> your heart, and then breaking it as they trot off across the bacon-wrapped rainbow
+        bridge. This emotionally complicated loop is the <i>driving</i> vision of <b>ForeverPig: Your Perpetual Piglet
+          Provider</b>
+      </p>
+      <p class="infographic"><img src="./assets/images/infographic.jpg" alt="" width="600px"></p>
+
+    </div>
+
+    <!-- Signup Form -->
+    <div class="medium-6 large-4 cell">
+      <div class="translucent-form-overlay">
+        <form class="registration-form" id = "signupForm">
+          <h3>Join ForeverPig</h3>
+          <div class="row columns">
+            <label>First Name
+              <input type="text" name="first_name" id="first_name">
+            </label>
+          </div>
+          <div class="row columns">
+            <label>Last Name
+              <input type="text" name="last_name" id="last_name">
+            </label>
+          </div>
+          <div class="row columns">
+            <label>Email
+              <input type="email" name="email" id="email">
+            </label>
+          </div>
+          <div class="row columns">
+            <label>Password
+              <input type="password" name="password" id="password">
+            </label>
+          </div>
+          <button type="submit" class="primary button expanded search-button" id="submit">
+            Squee!
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./assets/js/register.js"></script>

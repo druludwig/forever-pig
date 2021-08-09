@@ -1,0 +1,33 @@
+<!-- Saving for later when merging MVP -->
+
+<!-- Conditionally render login or logout links -->
+{{#if logged_in}}
+<a href="/profile">profile</a> |
+<button class="no-button" id="logout">logout</button> {{else}}
+<a href="/login">login</a> {{/if}}
+</nav>
+</header>
+<main>
+    <!-- Render the sub layout -->
+    {{{ body }}}
+</main>
+
+
+<!-- Render script for logged in users only -->
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
+
+<!-- pig card rubric -->
+<div class="column">
+    <!-- pig info card -->
+    <div class="card">
+        <img src="./assets/images/pigletPics/rufusPiglet.jfif" alt="Rufus-the-Pig">
+        <div class="card-divider"><button id="reqButt">Request Info</button></div>
+        <div class="card-section">
+            <!-- need to add handlebars functionality -->
+            <h4>&#11088 &#11088 &#11088 &#11088</h4>
+            Hi, I'm <em>Rufus</em> and I'm a funloving pig that likes to take long walks on the beach and eat seafood slop!
+        </div>
+    </div>
+</div>
