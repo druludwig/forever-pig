@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-router.get("/", (req, res) => {
-    res.render("homepage");
+router.get("/", async (req, res) => {
+    try{res.render("homepage");}
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 })
 
 router.get('/directory', async (req, res) => {
@@ -36,7 +40,7 @@ router.get("/pig-profile/:id", async (req, res) => {
 });
 
 router.get("/account", async (req, res) => {
-    console.log("user:",req.user)
+    if (req.isAuthenticated()) {
     let user = req.user
     try {
         res.render('user-account', { user });
@@ -44,6 +48,9 @@ router.get("/account", async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+}else{
+    res.redirect('/login')   
+}
 });
 
 
@@ -55,10 +62,6 @@ router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/")
 })
-
-
-
-
 
 router.get("/newpiggy", (req, res) => {
 
