@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const db = require('../../models');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 router.get('/', (req, res) => {
+  console.log("users")
+  console.log(req.user.first_name);
+
   db.User.findAll()
     .then(userData => {
       res.json(userData)
@@ -28,41 +32,58 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post("/login",(req,res)=>{
-  db.User.findOne({
-      where:{
-          email:req.body.email,
-      }
-  }).then(userData=>{
-      if(!userData){
-          res.status(403).json({
-              message:"Invalid username or password"
-          })
-      } else {
-          if(bcrypt.compareSync(req.body.password,userData.password)){
-              req.session.user = {
-                  email:userData.email
-              }
-              res.json(userData)
-          } else {
-              res.status(403).json({
-                  message:"Invalid username or password"
-              })
-          }
-      }
-  }).catch(err=>{
-      console.log(err);
-      res.status(500).json({
-          message:"Uh oh!",
-          error:err
-      })
-  })
-})
+// router.post("/login",(req,res)=>{
+//   db.User.findOne({
+//       where:{
+//           email:req.body.email,
+//       }
+//   }).then(userData=>{
+//       if(!userData){
+//           res.status(403).json({
+//               message:"Invalid username or password"
+//           })
+//       } else {
+//           if(bcrypt.compareSync(req.body.password,userData.password)){
+//               req.session.user = {
+//                   email:userData.email
+//               }
+//               res.json(userData)
+//               console.log('logged in')
+//           } else {
+//               res.status(403).json({
+//                   message:"Invalid username or password"
+//               })
+//           }
+//       }
+//   }).catch(err=>{
+//       console.log(err);
+//       res.status(500).json({
+//           message:"Uh oh!",
+//           error:err
+//       })
+//   })
+// })
 
+router.post('/login', passport.authenticate('local-signin', {
+  successRedirect: '/directory',
+
+  failureRedirect: '/login'
+}
+
+));
+
+// router.get('/logout', (req,res) => {
+  
+//   req.session.destroy(function(err) {
+ 
+//     res.redirect('/');
+
+// });
+// });
 
 router.get("/session", (req, res) => {
   res.json ({ 
-    sessionData:req.session
+    sessionData:''
   })
 })
 

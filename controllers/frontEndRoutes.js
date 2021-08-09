@@ -31,7 +31,12 @@ router.get("/logout", (req, res) => {
     res.redirect("/")
 })
 
+
+
+
+
 router.get("/newpiggy", (req, res) => {
+
     res.render("new-piggy");
 })
 
