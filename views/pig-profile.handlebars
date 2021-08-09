@@ -32,8 +32,10 @@
             {{!-- Reserve Button - adds this pig to the user's account --}}
             {{!-- If needed, use {{id}} to get the pig's ID --}}
             <p style="margin-top: 25px;">
-                <a href="/" class="card-user-profile-button success button solid">Reserve {{name}}</a>
+                <button class="button" id="requestBtn" data-pigId={{id}}> Reserve {{name}} </button>
             </p>
         </ul>
     </div>
 </div>
+
+<script src="/assets/js/request.js"></script>

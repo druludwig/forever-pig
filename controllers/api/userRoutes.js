@@ -3,10 +3,7 @@ const db = require('../../models');
 const passport = require('passport');
 
 router.get('/', (req, res) => {
-  console.log("users")
-  console.log(req.user.first_name);
-
-  db.User.findAll()
+  db.User.findAll({include:[db.Piggy]})
     .then(userData => {
       res.json(userData)
     }).catch(err => {
@@ -39,14 +36,15 @@ router.post('/login', passport.authenticate('local-signin', {
 }
 ));
 
-router.post("/request", (req,res) =>{
+router.post("/request/:id", (req,res) =>{
+  console.log(req.user)
   if(!req.user){
     res.status(401).json({
       message:"Please Login to Request Some Piggies"
     })
   } else {
     db.Piggy.findByPk(req.params.id).then(userData=>{
-      userData.addRequest(req.body.request).then(done=>{
+      userData.addUser(req.user.id).then(done=>{
         res.json({message:"request sent"})
       })
     })
