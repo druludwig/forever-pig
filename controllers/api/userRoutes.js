@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const db = require('../../models');
-const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.get('/', (req, res) => {
@@ -32,37 +31,6 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// router.post("/login",(req,res)=>{
-//   db.User.findOne({
-//       where:{
-//           email:req.body.email,
-//       }
-//   }).then(userData=>{
-//       if(!userData){
-//           res.status(403).json({
-//               message:"Invalid username or password"
-//           })
-//       } else {
-//           if(bcrypt.compareSync(req.body.password,userData.password)){
-//               req.session.user = {
-//                   email:userData.email
-//               }
-//               res.json(userData)
-//               console.log('logged in')
-//           } else {
-//               res.status(403).json({
-//                   message:"Invalid username or password"
-//               })
-//           }
-//       }
-//   }).catch(err=>{
-//       console.log(err);
-//       res.status(500).json({
-//           message:"Uh oh!",
-//           error:err
-//       })
-//   })
-// })
 
 router.post('/login', passport.authenticate('local-signin', {
   successRedirect: '/directory',
@@ -72,21 +40,6 @@ router.post('/login', passport.authenticate('local-signin', {
 
 ));
 
-// router.get('/logout', (req,res) => {
-  
-//   req.session.destroy(function(err) {
- 
-//     res.redirect('/');
-
-// });
-// });
-
-router.get("/session", (req, res) => {
-  res.json ({ 
-    sessionData:''
-  })
-})
-
 router.post("/", (req, res) => {
   db.User.create({
     first_name: req.body.first_name,
@@ -94,15 +47,6 @@ router.post("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-    .then(newUser => {
-      req.session.user = {
-        id:userData.id,
-        username:userData.username,
-        email:userData.username,
-        email:userData.email
-      }
-      res.json(newUser);
-    })
     .catch(err => {
       console.log(err)
       res.status(500).json({
@@ -111,8 +55,6 @@ router.post("/", (req, res) => {
       })
     })
 })
-
-
 
 router.delete('/:id', async (req, res) => {
   try {

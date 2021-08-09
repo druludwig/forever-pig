@@ -2,11 +2,17 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-router.get("/", (req, res) => {
-    res.render("homepage");
+router.get("/", async (req, res) => {
+    try{res.render("homepage");}
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 })
 
 router.get('/directory', async (req, res) => {
+    if (req.isAuthenticated()) {
+        
     try {
         const piggyData = await db.Piggy.findAll()
         const pigSend = piggyData.map((piggy) => piggy.get({ plain: true }));
@@ -16,6 +22,10 @@ router.get('/directory', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+
+}else{
+    res.redirect('/login')   
+}
 });
 
 router.get("/pig-profile/:id", async (req, res) => {
@@ -30,15 +40,17 @@ router.get("/pig-profile/:id", async (req, res) => {
 });
 
 router.get("/account", async (req, res) => {
+    if (req.isAuthenticated()) {
+    let user = req.user
     try {
-        const piggyData = await db.Piggy.findAll()
-        const pigSend = piggyData.map((piggy) => piggy.get({ plain: true }));
-        console.log(pigSend)
-        res.render('user-account', { pigSend });
+        res.render('user-account', { user });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
+}else{
+    res.redirect('/login')   
+}
 });
 
 
@@ -50,9 +62,6 @@ router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/")
 })
-
-
-
 
 router.get("/newpiggy", (req, res) => {
 
