@@ -3,49 +3,30 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ForeverPig</title>
-  <link rel="stylesheet" href="./assets/css/jass.css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
     integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 
 <body>
-  <div class="grid-x grid-margin-y">
-    <div class="cell">
-      <header class="center">
-        <h1><img src="./assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
-        <nav><a href="/">Home</a> | <a href="/directory">Directory</a> |
-          {{#if logged_in}}
-          <a href="/profile">profile</a> |
-          <button class="no-button" id="logout">Logout</button>
-          {{else}}
-          <a href="/login">Login</a>
-          {{/if}}
-          | <a href="/newpiggy">List a Piglet</a>
-        </nav>
-      </header>
-    </div>
+  <div class="cell">
+    {{{ body }}}
+  </div>
 
-    <div class="cell">
-      <hr>
-      {{{ body }}}
-    </div>
-    <!-- Footer -->
-    <footer class="cell center">
-      <hr>
-      🐽<br>Created by Zach, Jared, Leone, and Dru
-    </footer>
-
-
+  <!-- Footer -->
+  <footer class="cell center">
+    <hr>
+    🐽<br>Created by Zach, Jared, Leone, and Dru
+  </footer>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
     integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 </body>
-
-</html>
 
 </html>

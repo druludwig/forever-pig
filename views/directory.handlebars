@@ -1,10 +1,38 @@
-{{!-- This renders the list of pigs that merges into the "body" of main.handlebars --}}
+{{!-- Header --}}
+<div class="cell" style="text-align:center">
+    <header class="center">
+        <h1><img src="../assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/directory">Directory</a> |
+            <a href="/newpiggy">List a Piglet</a> |
+            {{> login}}
+        </nav>
+    </header>
+    <hr>
+</div>
+{{!-- END Header --}}
 
-<h1>Directory</h1>
+  <div class="grid-x" style="text-align:center">
 
-{{#each pigSend as |piggy|}}
-<p>{{piggy.name}}</p>
-<p>{{piggy.breed}}</p>
-{{/each}}
-
-<p>end pig list</p>
+    {{#each pigSend as |piggy|}}
+    <div class="card-user-profile" style="width: 350px; margin:25px">
+      <a href="/pig-profile/{{id}}"><img class="card-user-profile-img"
+          src="../assets/images/pigletPics/{{image_name}}" /></a>
+      <div class="card-user-profile-content card-section">
+        <div class="card-user-profile-avatar">
+          <a href="/pig-profile/{{id}}"><img src="./assets/images/pig-avatar.png" alt="piggy" /></a>
+        </div>
+        <p class="card-user-profile-name" style="font-size: 30px;">{{name}}</p>
+        <p class="card-user-profile-status">{{sex}} {{breed}}</p>
+        <p><span style="font-size: 27px;">🎂 </span>{{birthdate}}</p>
+        <p><span style="font-size: 27px;">⚖️ </span>{{weight}}</p>
+        <p><span style="font-size: 27px;">📍 </span>{{location}}</p>
+      </div>
+      <div class="card-user-profile-actions">
+        <a href="/pig-profile/{{id}}" class="card-user-profile-button button solid custom-button">
+          <span style="font-size: 18px;">More about {{name}}</span></a>
+      </div>
+    </div>
+    {{/each}}
+  </div>

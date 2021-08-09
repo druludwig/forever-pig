@@ -25,11 +25,17 @@ Piggy.init({
     farm_name: {
         type: DataTypes.TEXT
     },
-    image_link: {
+    image_name: {
+        type: DataTypes.TEXT
+    },
+    bio_short: {
+        type: DataTypes.TEXT
+    },
+    bio_full: {
         type: DataTypes.TEXT
     }
 },
-    { sequelize} 
+    { sequelize }
 )
 
 module.exports = Piggy
