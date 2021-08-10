@@ -37,7 +37,6 @@ router.post('/login', passport.authenticate('local-signin', {
 ));
 
 router.post("/request/:id", (req,res) =>{
-  console.log(req.user)
   if(!req.user){
     res.status(401).json({
       message:"Please Login to Request Some Piggies"
