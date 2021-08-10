@@ -21,12 +21,12 @@
 
     <div style="margin-top: 30px;" class="center">
         {{!-- If the user has pig(s) requested, display them --}}
-        {{name}}
 
-        {{#each Piggy as |piggy|}}
+        {{#each Piggy.dataValues as |piggy|}}
+
         {{name}}
-        {{piggyData.breed}}
-        {{sex}}
+        {{breed}}
+
         {{/each}}
 
     </div>

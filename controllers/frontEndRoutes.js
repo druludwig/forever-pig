@@ -8,11 +8,10 @@ router.get("/", async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-})
+});
 
 router.get('/directory', async (req, res) => {
     if (req.isAuthenticated()) {
-
         try {
             const piggyData = await db.Piggy.findAll()
             const pigSend = piggyData.map((piggy) => piggy.get({ plain: true }));
@@ -22,7 +21,6 @@ router.get('/directory', async (req, res) => {
             console.log(err);
             res.status(500).json(err);
         }
-
     } else {
         res.redirect('/login')
     }
@@ -44,16 +42,16 @@ router.get("/account", async (req, res) => {
     if (req.isAuthenticated()) {
         let user = req.user
         db.User.findByPk(req.user.id, { include: [db.Piggy] })
-        .then(userData => {
-            console.log(userData)
-            res.render('user-account', { user, userData })
-        }).catch(err => {
-            console.log(err);
-        })
+            .then(userData => {
+                let piggyData = userData.Piggies
+                console.log(user)
+                console.log(piggyData[0].dataValues)
+                res.render('user-account', { user, piggyData })
+            }).catch(err => {
+                console.log(err);
+            })
     }
 });
-
-
 
 router.get("/login", (req, res) => {
     res.render("user-login");
@@ -65,7 +63,6 @@ router.get("/logout", (req, res) => {
 })
 
 router.get("/newpiggy", (req, res) => {
-
     res.render("new-piggy");
 })
 
