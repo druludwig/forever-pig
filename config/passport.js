@@ -62,7 +62,7 @@ passport.deserializeUser(function (id, done) {
 
         } else {
 
-            done(user.errors, null);
+            done(null);
 
         }
 
