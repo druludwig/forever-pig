@@ -52,7 +52,7 @@ const plantSeeds = async () => {
       farm_name: "Big Pig Farms",
       bio_short: "I'm Oinkers and turns out no, I won't get along with your dog",
       bio_full: "Oinkers was named for her penchant for language. She has traced pig dialect back centuries and is the leading researcher in her field, and at the young age of one month, won her very first Pigletzer Award.",
-      image_name: "002.jpg"
+      image_name: "002.jpeg"
     },
     {
       name: "Taco",

@@ -43,8 +43,6 @@ router.get("/account", async (req, res) => {
         db.User.findByPk(req.user.id, { include: [db.Piggy] })
             .then(userData => {
                 let piggyData = userData.Piggies
-                console.log(user)
-                console.log(piggyData)
                 res.render('user-account', { user, piggyData })
             }).catch(err => {
                 console.log(err);

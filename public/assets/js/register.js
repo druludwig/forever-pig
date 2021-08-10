@@ -16,7 +16,7 @@ async function signupFormHandler(event) {
         if (res.ok) {
         } else {
             console.log(res)
-            location.replace('/login')
+            location.replace('/account')
         }
     })
 }

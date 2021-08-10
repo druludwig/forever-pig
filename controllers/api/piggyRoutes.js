@@ -50,25 +50,4 @@ router.post("/", (req, res) => {
     })
 })
 
-// When a user clicks request, this attaches the pig to the user
-router.put('/:id', (req, res) => {
-  // Calls the update method on the User model
-  db.User.update(
-    {
-      // All the fields you can update and the data attached to the request body.
-      title: req.body.title,
-    },
-    {
-      // Gets the books based on the isbn given in the request parameters
-      where: {
-        isbn: req.params.isbn,
-      },
-    }
-  )
-    .then((updatedBook) => {
-      // Sends the updated book as a json response
-      res.json(updatedBook);
-    })
-    .catch((err) => res.json(err));
-});
 module.exports = router;
