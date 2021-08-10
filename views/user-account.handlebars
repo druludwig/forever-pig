@@ -26,16 +26,15 @@
                 style="width: 500px; height: auto; border:1px solid rgb(184, 184, 184); margin: auto; margin-bottom:25px; padding: 15px; background-color:rgb(253, 227, 231)">
                 <a href="pig-profile/{{this.dataValues.id}}"><img
                         src="../assets/images/pigletPics/{{this.dataValues.image_name}}" width="150px"></a>
-                <p style="font-size:13px;"><a href="pig-profile/{{this.dataValues.id}}"><i>View Profile</i></a></p>
                 <p style="line-height:18px; margin-top:10px">{{this.dataValues.name}} from {{this.dataValues.location}}</p>
                 <p style="font-size: 14px; line-height:18px"><i>{{this.dataValues.bio_short}}</i></p>
-                <button type="button" class="alert button"> Withdraw Request</button>
+                <form action="pig-profile/{{this.dataValues.id}}">
+                <input type="submit" style="button" value="View Pig Profile" />
+                    </form>
 
             </div>
         </div>
         {{/each}}
 
     </div>
-    <p style="margin-top: 50px;">
-    </p>
 </div>
