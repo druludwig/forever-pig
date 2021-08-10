@@ -6,20 +6,26 @@ const plantSeeds = async () => {
   await db.User.bulkCreate([
     {
       first_name: "Dru",
-      last_name: "Lastname",
+      last_name: "Ludwig",
       email: "dru@foreverpigs.com",
       password: "password"
     },
     {
       first_name: "Zach",
-      last_name: "Lastname",
+      last_name: "Maurer",
       email: "zach@foreverpigs.com",
       password: "password"
     },
     {
       first_name: "Jared",
-      last_name: "Lastname",
+      last_name: "Rose",
       email: "jared@foreverpigs.com",
+      password: "password"
+    },
+    {
+      first_name: "Leone",
+      last_name: "Soth",
+      email: "leone@foreverpigs.com",
       password: "password"
     }
   ]);
