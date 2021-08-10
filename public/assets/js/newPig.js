@@ -9,6 +9,9 @@ newPigForm.addEventListener("submit", (event) => {
         weight: document.querySelector("#pigWeight").value,
         location: document.querySelector("#pigLocation").value,
         farm_name: document.querySelector("#pigFarm").value,
+        bio_short: document.querySelector("#pigSD").value,
+        bio_full: document.querySelector("#pigLD").value,
+        image_name: "default.jpeg"
 
     }
     console.log(newPigObj);
