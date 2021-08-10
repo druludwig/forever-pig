@@ -1,3 +1,41 @@
+{{!-- Header --}}
+<div class="cell" style="text-align:center">
+    <header class="center">
+        <h1><img src="../assets/images/forever-pig-logo.png" alt="Forever Pig" width="200px"></h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/directory">Directory</a> |
+            <a href="/newpiggy">List a Piglet</a> |
+            <a href="/account">My Account</a> |
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <hr>
+</div>
+{{!-- END Header --}}
 
-<h1>{{user.first_name}}'s Page!</h1>
-<a href="/logout">logout</a> 
+<div class="center">
+
+    <h4 style="margin-top: 30px; margin-left:50px">{{user.first_name}} {{user.last_name}}<em><br>Current Requests</em></h4>
+    {{!-- Piggy Container --}}
+    <div style="margin-top: 30px;" class="center">
+
+        {{#each piggyData}}
+        <div class="cell">
+            <div
+                style="width: 500px; height: auto; border:1px solid rgb(184, 184, 184); margin: auto; margin-bottom:25px; padding: 15px; background-color:rgb(253, 227, 231)">
+                <a href="pig-profile/{{this.dataValues.id}}"><img
+                        src="../assets/images/pigletPics/{{this.dataValues.image_name}}" width="150px"></a>
+                <p style="font-size:13px;"><a href="pig-profile/{{this.dataValues.id}}"><i>View Profile</i></a></p>
+                <p style="line-height:18px; margin-top:10px">{{this.dataValues.name}} from {{this.dataValues.location}}</p>
+                <p style="font-size: 14px; line-height:18px"><i>{{this.dataValues.bio_short}}</i></p>
+                <button type="button" class="alert button"> Withdraw Request</button>
+
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    <p style="margin-top: 50px;">
+    </p>
+</div>
