@@ -5,7 +5,7 @@ requestBtn?.addEventListener("click",e=>{
         headers:{"Content-Type": "application/json"}
     }).then(res=>{
         if(res.ok){
-            location.reload()
+            location.replace('/account')
         }else {
             alert('oopsies')
         }

@@ -37,7 +37,6 @@ router.get("/pig-profile/:id", async (req, res) => {
     }
 });
 
-// TODO: Update this so user-account.handlebars can interpret it
 router.get("/account", async (req, res) => {
     if (req.isAuthenticated()) {
         let user = req.user
@@ -45,7 +44,7 @@ router.get("/account", async (req, res) => {
             .then(userData => {
                 let piggyData = userData.Piggies
                 console.log(user)
-                console.log(piggyData[0].dataValues)
+                console.log(piggyData)
                 res.render('user-account', { user, piggyData })
             }).catch(err => {
                 console.log(err);
