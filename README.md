@@ -1,6 +1,4 @@
 <img src="./public/assets/images/forever-pig-logo.png" width="250px">
-<br>
-<span style="font-size: 18px"><i>Your Perpetual Piglet Provider</i></span>
 <hr>
   Live demo: <a href="https://dashboard.heroku.com/apps/forever-pig">https://dashboard.heroku.com/apps/forever-pig</a> 
 
