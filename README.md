@@ -12,7 +12,7 @@
   This was a team project inspired by an instructor's significant other's original idea. We were challenged to build the foundation for a fictitious <i>short-term piglet fostering service</i>. The project required understanding and implementation of [MySQL2](https://www.npmjs.com/package/mysql2), [Sequelize](https://www.npmjs.com/package/sequelize), [Passport](https://www.npmjs.com/package/passport), [Handlebars](https://www.npmjs.com/package/handlebars), and [Express](https://www.npmjs.com/package/express). 
 
 ## Usage
-  This project was a first step in developing the fictitious service of ForeverPig, and uses a very simple workflow in its first iteration.
+  This project is the first step in developing ForeverPig, and uses a simple workflow in its first iteration.
   1. User creates an account
   2. User browses a directory and requests a piglet of choice
   3. User views pending requests on their account
